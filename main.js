@@ -31,159 +31,48 @@ $(document).ready(function(){
     }
   }, 3000)
 })
+// Modal
 
-
-
-
-// Modal and Slideshow for "Corporate Section"
-
-function openModal() {
-  document.getElementById('myModal').style.display = "block";
+function openModal(index) {
+  if(index > 1) {
+	document.getElementById('myModal_'+index).style.display = "block";
+  } else {
+    document.getElementById('myModal').style.display = "block";
+  }
 }
 
-function closeModal() {
-  document.getElementById('myModal').style.display = "none";
+function closeModal(index) {
+  if(index > 1) {
+     document.getElementById('myModal_'+index).style.display = "none";
+  } else {
+     document.getElementById('myModal').style.display = "none";
+  }
 }
 
 var slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) { // Next/previous controls//
-  showSlides(slideIndex += n);
+function plusSlides(n,index) { // Next/previous controls//
+  showSlidesStart(slideIndex += n,index);
 }
 
-function currentSlide(n) { // Thumbnail image controls//
-  showSlides(slideIndex = n);
+function currentSlideStart(n,index) { // Thumbnail image controls//
+  showSlidesStart(slideIndex = n,index);
 }
 
-function showSlides(n) {
+function showSlidesStart(n,index) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+  var slides;
+  var dots;
+  var captionText;
+  if(index > 1) {
+		slides = document.getElementsByClassName("mySlides_"+index);
+		dots = document.getElementsByClassName("demo_"+index);
+		captionText = document.getElementById("caption_"+index);
+  } else {
+       slides = document.getElementsByClassName("mySlides");
+	   dots = document.getElementsByClassName("demo");
+	   captionText = document.getElementById("caption");
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-
-//Modal/lightbox for 'Education Section' //
-
-function openModal_2() {
-  document.getElementById('myModal_2').style.display = "block";
-}
-
-function closeModal_2() {
-  document.getElementById('myModal_2').style.display = "none";
-}
-
-var slideIndex= 1;
-showSlides(slideIndex);
-
-function plusSlides(n) { // Next/previous controls//
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) { // Thumbnail image controls//
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides_2");
-  var dots = document.getElementsByClassName("demo_2");
-  var captionText = document.getElementById("caption_2");
-  if (n > slides.length) {slideIndex_2 = 1}
-  if (n < 1) {slideIndex_2 = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-// Modal/lightbox for 'Advertising Section'
-
-function openModal_3() {
-  document.getElementById('myModal_3').style.display = "block";
-}
-
-
-function closeModal_3() {
-  document.getElementById('myModal_3').style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-
-
-function plusSlides(n) { // Next/previous controls//
-  showSlides(slideIndex += n);
-}
-
-
-function currentSlide(n) { // Thumbnail image controls//
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides_3");
-  var dots = document.getElementsByClassName("demo_3");
-  var captionText = document.getElementById("caption_3");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-
-// Modal/lightbox for 'Publication Section'
-
-function openModal_4() {
-  document.getElementById('myModal_4').style.display = "block";
-}
-
-function closeModal_4() {
-  document.getElementById('myModal_4').style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) { // Next/previous controls//
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) { // Thumbnail image controls//
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides_4");
-  var dots = document.getElementsByClassName("demo_4");
-  var captionText = document.getElementById("caption_4");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
