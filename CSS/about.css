@@ -33,6 +33,11 @@ main.about{
 .grey_blue{
   color: #52667C;
 }
+.timeline{
+  width: 100%;
+  margin: 0 auto;
+}
+
 .readless a, .readmore a{
   color: #52667C;
   font-weight: 400;
